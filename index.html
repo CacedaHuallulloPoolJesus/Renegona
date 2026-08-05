@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para la Renegona ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#fff0f5,#ffd6e7,#fff);
+overflow-x:hidden;
+color:#6b2142;
+}
+
+/* Pantalla inicial */
+
+#welcomeScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:linear-gradient(135deg,#ff9ebc,#ffbfd4,#fff);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+transition:1.5s;
+}
+
+#welcomeScreen h1{
+font-family:'Great Vibes',cursive;
+font-size:5rem;
+color:white;
+text-shadow:0 0 20px rgba(255,255,255,.7);
+margin-bottom:30px;
+animation:float 3s ease-in-out infinite;
+}
+
+.start-btn{
+padding:18px 45px;
+font-size:1.3rem;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:white;
+color:#e91e63;
+font-weight:bold;
+letter-spacing:2px;
+transition:.4s;
+box-shadow:0 0 25px rgba(255,255,255,.7);
+}
+
+.start-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 35px #fff;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+/* Contenido */
+
+#mainContent{
+display:none;
+opacity:0;
+transition:1.5s;
+padding:30px;
+position:relative;
+z-index:2;
+}
+
+.show{
+display:block !important;
+opacity:1 !important;
+}
+
+.hero{
+text-align:center;
+padding-top:50px;
+animation:fadeUp 1.5s ease;
+}
+
+.hero h1{
+font-family:'Great Vibes',cursive;
+font-size:6rem;
+color:#d81b60;
+margin-bottom:20px;
+text-shadow:2px 2px 10px rgba(255,105,180,.3);
+}
+
+.hero p{
+font-size:1.2rem;
+max-width:800px;
+margin:auto;
+line-height:1.8;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Poema */
+
+.poem{
+max-width:900px;
+margin:50px auto;
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(8px);
+padding:35px;
+border-radius:25px;
+box-shadow:0 8px 25px rgba(233,30,99,.15);
+border:2px solid rgba(255,182,193,.4);
+}
+
+.poem h2{
+text-align:center;
+margin-bottom:20px;
+color:#d81b60;
+font-family:'Great Vibes',cursive;
+font-size:3rem;
+}
+
+.poem p{
+line-height:2;
+font-size:1.1rem;
+text-align:center;
+}
+
+/* Galería */
+
+.gallery-title{
+text-align:center;
+font-family:'Great Vibes',cursive;
+font-size:4rem;
+margin:50px 0 20px;
+color:#d81b60;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+max-width:1300px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:15px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+border:3px solid #ffd1e1;
+transition:.4s;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+}
+
+.card img{
+width:100%;
+height:350px;
+object-fit:contain;
+background:#fff8fb;
+border-radius:20px;
+border:4px solid #ffd6e8;
+}
+
+.card p{
+margin-top:15px;
+text-align:center;
+font-size:1rem;
+font-weight:500;
+color:#b03060;
+}
+
+/* Música */
+
+.music-control{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff4f8b;
+color:white;
+border:none;
+width:70px;
+height:70px;
+border-radius:50%;
+font-size:1.6rem;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,105,180,.5);
+z-index:999;
+transition:.4s;
+}
+
+.music-control:hover{
+transform:scale(1.1);
+}
+
+.volume-box{
+position:fixed;
+bottom:100px;
+right:20px;
+background:white;
+padding:10px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+z-index:999;
+}
+
+.volume-box input{
+width:120px;
+}
+
+/* Corazones y rosas */
+
+.falling{
+position:fixed;
+top:-50px;
+pointer-events:none;
+z-index:1;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.footer{
+text-align:center;
+padding:50px 20px;
+font-size:1.1rem;
+font-weight:600;
+color:#c2185b;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:4rem;
+}
+
+#welcomeScreen h1{
+font-size:3rem;
+}
+
+.gallery-title{
+font-size:3rem;
+}
+
+.poem h2{
+font-size:2.4rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- Pantalla de Inicio -->
+
+<div id="welcomeScreen">
+
+<h1>Para Angie ❤️</h1>
+
+<button class="start-btn" onclick="enterSite()">
+PRESIONA AQUÍ
+</button>
+
+</div>
+
+<!-- Audio -->
+
+<audio id="bgMusic" loop>
+<source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Contenido -->
+
+<div id="mainContent">
+
+<section class="hero">
+<h1>Renegona ✨</h1>
+
+<p>
+Hay personas que iluminan un lugar con su presencia,
+y tú eres una de ellas.
+</p>
+</section>
+
+<section class="poem">
+
+<h2>Unas palabras para ti</h2>
+
+<p>
+Angie, tu belleza no se encuentra solamente en tu sonrisa,
+en tu mirada o en la forma en que haces brillar cada fotografía;
+también se encuentra en la nobleza de tu corazón,
+en la forma en que tratas a las personas y en la luz que transmites
+cuando persigues tus sueños.<br><br>
+
+Admiro profundamente tu esfuerzo y la dedicación que pones
+en tus estudios. No todos tienen la disciplina, la constancia
+y el compromiso que tú demuestras cada día para alcanzar
+sus metas.<br><br>
+
+Eres una persona valiosa, inteligente, fuerte y especial.
+Tu manera de seguir adelante incluso en los momentos difíciles
+es algo digno de admirar.<br><br>
+
+Nunca olvides que tu belleza exterior llama la atención,
+pero es tu hermosa forma de ser la que realmente deja huella
+en quienes tienen la fortuna de conocerte.<br><br>
+
+Que cada paso que des te acerque más a tus sueños,
+porque mereces todo lo bueno que la vida pueda ofrecer.
+❤️
+</p>
+
+</section>
+
+<h2 class="gallery-title">Eres hermosa Renegona 🌹</h2>
+
+<section class="gallery">
+
+<div class="card">
+<img src="imagen 1.jpeg" alt="">
+<p>Tu sonrisa tiene el poder de alegrar cualquier día.</p>
+</div>
+
+<div class="card">
+<img src="imagen 2.jpeg" alt="">
+<p>La belleza más especial es la que nace de un corazón noble.</p>
+</div>
+
+<div class="card">
+<img src="imagen 3.jpeg" alt="">
+<p>Cada meta que persigues demuestra tu gran dedicación.</p>
+</div>
+
+<div class="card">
+<img src="imagen 4.jpeg" alt="">
+<p>Tu esfuerzo diario inspira mucho más de lo que imaginas.</p>
+</div>
+
+<div class="card">
+<img src="imagen 5.jpeg" alt="">
+<p>Eres una combinación perfecta de inteligencia y dulzura.</p>
+</div>
+
+<div class="card">
+<img src="imagen 6.jpeg" alt="">
+<p>Nunca dejes de creer en ti, porque tienes una luz única.</p>
+</div>
+
+</section>
+
+<div class="footer">
+Con mucho cariño para Angie ❤️🌹
+</div>
+
+</div>
+
+<button class="music-control" id="musicBtn">
+🎵
+</button>
+
+<div class="volume-box">
+<input type="range" id="volume" min="0" max="1" step="0.1" value="0.7">
+</div>
+
+<script>
+
+const music = document.getElementById("bgMusic");
+const btnMusic = document.getElementById("musicBtn");
+
+function enterSite(){
+
+document.getElementById("welcomeScreen").style.opacity="0";
+
+setTimeout(()=>{
+document.getElementById("welcomeScreen").style.display="none";
+},1500);
+
+const content=document.getElementById("mainContent");
+
+content.classList.add("show");
+
+music.volume=0.7;
+
+music.play().catch(()=>{});
+
+}
+
+btnMusic.addEventListener("click",()=>{
+
+if(music.paused){
+music.play();
+btnMusic.innerHTML="🎵";
+}else{
+music.pause();
+btnMusic.innerHTML="🔇";
+}
+
+});
+
+document.getElementById("volume").addEventListener("input",e=>{
+music.volume=e.target.value;
+});
+
+/* Corazones */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("falling");
+
+heart.innerHTML=Math.random()>0.5 ? "❤️" : "🌹";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heart.style.animationDuration=(6+Math.random()*6)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},12000);
+
+}
+
+setInterval(createHeart,350);
+
+</script>
+
+</body>
+</html>
